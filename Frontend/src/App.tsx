@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { ShieldAlert, Search, FolderSearch } from "lucide-react";
+import AlertsDashboard from "./pages/AlertsDashboard";
+import CaseInvestigation from "./pages/CaseInvestigation";
+
 
 type Screen = "home" | "screen1" | "screen2";
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
 
-  if (screen === "screen1") {
-    return <PlaceholderScreen title="Alerts Dashboard" onBack={() => setScreen("home")} />;
-  }
-  if (screen === "screen2") {
-    return <PlaceholderScreen title="Case Investigation" onBack={() => setScreen("home")} />;
-  }
+  if (screen === "screen1") return <AlertsDashboard />;
+  if (screen === "screen2") return <CaseInvestigation />;
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6">
