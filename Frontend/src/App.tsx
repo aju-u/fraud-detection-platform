@@ -10,7 +10,9 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
 
   if (screen === "screen1") return <AlertsDashboard />;
-  if (screen === "screen2") return <CaseInvestigation />;
+  if (screen === "screen2") return <CaseInvestigation onBack={function (): void {
+    throw new Error("Function not implemented.");
+  } } />;
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6">
@@ -49,21 +51,6 @@ export default function App() {
           </button>
         </div>
       </div>
-    </div>
-  );
-}
-
-function PlaceholderScreen({ title, onBack }: { title: string; onBack: () => void }) {
-  return (
-    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6">
-      <p className="text-slate-500 text-sm uppercase tracking-wide mb-2">Placeholder</p>
-      <h2 className="text-slate-50 text-xl font-semibold mb-8">{title}</h2>
-      <button
-        onClick={onBack}
-        className="text-slate-400 hover:text-slate-100 text-sm border border-slate-800 hover:border-slate-600 rounded-lg px-4 py-2 transition-colors"
-      >
-        ← Back to home
-      </button>
     </div>
   );
 }
