@@ -9,7 +9,7 @@ type Screen = "home" | "screen1" | "screen2";
 export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
 
-  if (screen === "screen1") return <AlertsDashboard />;
+  if (screen === "screen1") return <AlertsDashboard onBack={() => setScreen("home")}/>;
   if (screen === "screen2") return <CaseInvestigation />;
 
   return (
